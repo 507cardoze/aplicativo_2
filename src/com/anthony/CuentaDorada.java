@@ -2,7 +2,7 @@ package com.anthony;
 
 public class CuentaDorada extends Cuenta {
 
-    int interes = 5;
+    double interes = 0.05;
 
     @Override
     public String cargar(double val) {
@@ -13,6 +13,6 @@ public class CuentaDorada extends Cuenta {
 
     @Override
     public double calcInteres(double val) {
-        return interes / 100 * val;
+        return val * interes;
     }
 }

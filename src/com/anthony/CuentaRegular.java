@@ -2,23 +2,23 @@ package com.anthony;
 
 public class CuentaRegular extends Cuenta {
 
-    int interes = 6;
+    double interes = 0.06;
     int cargoFijo = 1;
 
 
     @Override
     public String cargar(double val) {
-        if(saldo <= 0){
+        if(saldoActual() < val + calcInteres(val)){
             return "Cuenta sobregirada.";
         } else{
             saldo-=val;
             saldo-=calcInteres(val);
-            return "Carga de cuenta exitosa";
+            return "Retiro de cuenta exitoso";
         }
     }
 
     @Override
     public double calcInteres(double val) {
-        return (interes / 100 * val) + cargoFijo;
+        return (val * interes) + cargoFijo;
     }
 }
